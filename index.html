@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101113">
+    <title>COS // PRIVATE TERMINAL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- =================================================
+     LOGIN
+================================================= -->
+
+<section id="login-screen" class="screen login-screen">
+    <div class="login-container">
+
+        <div class="login-brand">
+            <div class="login-symbol">C</div>
+            <div>
+                <span class="login-overline">EXECUTIVE AUTHORITY</span>
+                <h1>COS</h1>
+                <p>PRIVATE TERMINAL</p>
+            </div>
+        </div>
+
+        <div class="login-separator"></div>
+
+        <div class="login-heading">
+            <span>IDENTIFICATION REQUIRED</span>
+            <h2>System access</h2>
+            <p>Authenticate your executive credentials.</p>
+        </div>
+
+        <form id="login-form">
+            <label for="username">USER IDENTIFICATION</label>
+            <input id="username" type="text" placeholder="Enter username" autocomplete="username" required>
+
+            <label for="password">ACCESS PASSWORD</label>
+            <input id="password" type="password" placeholder="Enter password" autocomplete="current-password" required>
+
+            <button type="submit">AUTHENTICATE <span>→</span></button>
+
+            <p id="login-error" class="error-message"></p>
+        </form>
+
+        <div class="login-footer">
+            <span>PERSONAL EXECUTIVE SYSTEM</span>
+            <span>PRIVATE ACCESS</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =================================================
+     MAIN TERMINAL
+================================================= -->
+
+<section id="main-terminal" class="screen hidden">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="topbar-brand">
+            <div class="brand-symbol">C</div>
+
+            <div class="brand-information">
+                <h2>COS <span>//</span> PRIVATE TERMINAL</h2>
+                <p>PERSONAL EXECUTIVE SYSTEM</p>
+            </div>
+        </div>
+
+        <div class="topbar-center">
+            <span class="system-status-dot"></span>
+            <span>SESSION ACTIVE</span>
+        </div>
+
+        <div class="topbar-right">
+            <div class="clock-container">
+                <span class="clock-label">LOCAL TIME</span>
+                <strong id="system-clock">00:00:00</strong>
+            </div>
+
+            <div class="topbar-divider"></div>
+
+            <div class="user-indicator">
+                <span class="user-indicator-label">CURRENT USER</span>
+                <strong>COS</strong>
+            </div>
+
+            <button id="logout-button" class="logout-button">LOG OUT</button>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN WORKSPACE -->
+
+    <div class="workspace">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-profile">
+                <span class="sidebar-profile-label">EXECUTIVE WORKSPACE</span>
+                <strong>COS OFFICE</strong>
+                <span class="sidebar-profile-status">PRIVATE SESSION</span>
+            </div>
+
+            <div class="sidebar-group">
+                <span class="sidebar-heading">OVERVIEW</span>
+
+                <button class="nav-button active" data-page="dashboard">
+                    <span class="nav-icon">01</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button class="nav-button" data-page="timeline">
+                    <span class="nav-icon">02</span>
+                    <span>Timeline</span>
+                </button>
+
+                <button class="nav-button" data-page="inbox">
+                    <span class="nav-icon">03</span>
+                    <span>Private inbox</span>
+                </button>
+            </div>
+
+            <div class="sidebar-group">
+                <span class="sidebar-heading">PERSONAL RECORDS</span>
+
+                <button class="nav-button" data-page="archive">
+                    <span class="nav-icon">04</span>
+                    <span>Private archive</span>
+                </button>
+
+                <button class="nav-button" data-page="journal">
+                    <span class="nav-icon">05</span>
+                    <span>Personal journal</span>
+                </button>
+
+                <button class="nav-button" data-page="black-files">
+                    <span class="nav-icon">06</span>
+                    <span>Black files</span>
+                </button>
+
+                <button class="nav-button" data-page="contacts">
+                    <span class="nav-icon">07</span>
+                    <span>Private contacts</span>
+                </button>
+
+                <button class="nav-button" data-page="sealed">
+                    <span class="nav-icon">08</span>
+                    <span>Sealed records</span>
+                </button>
+
+                <button class="nav-button" data-page="history">
+                    <span class="nav-icon">09</span>
+                    <span>Historical records</span>
+                </button>
+            </div>
+
+            <div class="sidebar-group">
+                <span class="sidebar-heading">EXECUTIVE MANAGEMENT</span>
+
+                <button class="nav-button" data-page="notes">
+                    <span class="nav-icon">10</span>
+                    <span>Executive notes</span>
+                </button>
+
+                <button class="nav-button" data-page="decisions">
+                    <span class="nav-icon">11</span>
+                    <span>Decision register</span>
+                </button>
+
+                <button class="nav-button" data-page="projects">
+                    <span class="nav-icon">12</span>
+                    <span>Personal projects</span>
+                </button>
+
+                <button class="nav-button" data-page="unfinished">
+                    <span class="nav-icon">13</span>
+                    <span>Unfinished business</span>
+                </button>
+
+                <button class="nav-button" data-page="correspondence">
+                    <span class="nav-icon">14</span>
+                    <span>Correspondence</span>
+                </button>
+            </div>
+
+            <div class="sidebar-group">
+                <span class="sidebar-heading">SYSTEM</span>
+
+                <button class="nav-button" data-page="trash">
+                    <span class="nav-icon">15</span>
+                    <span>Trash / Recovery</span>
+                </button>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-bottom-line"></div>
+                <span>COS // PERSONAL SYSTEM</span>
+                <span>VERSION 2.0</span>
+            </div>
+
+        </aside>
+
+
+        <!-- CONTENT AREA -->
+
+        <main class="main-content">
+
+            <div class="content-topline">
+                <div>
+                    <span class="breadcrumb">PRIVATE TERMINAL / <span id="current-section">OVERVIEW</span></span>
+                </div>
+
+                <span class="classification-label">PERSONAL // RESTRICTED</span>
+            </div>
+
+
+            <!-- DASHBOARD -->
+
+            <section id="page-dashboard" class="page active">
+
+                <div class="welcome-header">
+                    <div>
+                        <span class="section-eyebrow">EXECUTIVE WORKSPACE</span>
+                        <h1>Personal dashboard</h1>
+                        <p>Your private workspace and personal records.</p>
+                    </div>
+
+                    <div class="dashboard-date">
+                        <span>SESSION</span>
+                        <strong id="dashboard-date">CURRENT SESSION</strong>
+                    </div>
+                </div>
+
+
+                <!-- STATISTICS -->
+
+                <div class="statistics-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>01</span>
+                            <span class="stat-category">DOCUMENTS</span>
+                        </div>
+                        <strong id="stat-archive">00</strong>
+                        <p>Private archive</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>02</span>
+                            <span class="stat-category">RECORDS</span>
+                        </div>
+                        <strong id="stat-files">00</strong>
+                        <p>Black files</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>03</span>
+                            <span class="stat-category">PROJECTS</span>
+                        </div>
+                        <strong id="stat-projects">00</strong>
+                        <p>Personal projects</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>04</span>
+                            <span class="stat-category">DECISIONS</span>
+                        </div>
+                        <strong id="stat-decisions">00</strong>
+                        <p>Decision register</p>
+                    </article>
+
+                </div>
+
+
+                <!-- DASHBOARD BODY -->
+
+                <div class="dashboard-columns">
+
+                    <div class="dashboard-main-column">
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+                                <div>
+                                    <span class="panel-eyebrow">WORKSPACE</span>
+                                    <h2>Quick access</h2>
+                                </div>
+
+                                <span class="panel-reference">QAC-001</span>
+                            </div>
+
+                            <div class="quick-access-grid">
+
+                                <button class="quick-access-item" data-page="archive">
+                                    <span class="quick-access-number">01</span>
+                                    <strong>Private archive</strong>
+                                    <small>Documents and files</small>
+                                    <span class="quick-access-arrow">→</span>
+                                </button>
+
+                                <button class="quick-access-item" data-page="journal">
+                                    <span class="quick-access-number">02</span>
+                                    <strong>Personal journal</strong>
+                                    <small>Chronological entries</small>
+                                    <span class="quick-access-arrow">→</span>
+                                </button>
+
+                                <button class="quick-access-item" data-page="black-files">
+                                    <span class="quick-access-number">03</span>
+                                    <strong>Black files</strong>
+                                    <small>Private dossiers</small>
+                                    <span class="quick-access-arrow">→</span>
+                                </button>
+
+                                <button class="quick-access-item" data-page="projects">
+                                    <span class="quick-access-number">04</span>
+                                    <strong>Personal projects</strong>
+                                    <small>Development and planning</small>
+                                    <span class="quick-access-arrow">→</span>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <div>
+                                    <span class="panel-eyebrow">ACTIVITY</span>
+                                    <h2>Recent activity</h2>
+                                </div>
+
+                                <span class="panel-reference">ACT-LOG</span>
+                            </div>
+
+                            <div id="recent-activity" class="activity-list">
+                                <div class="empty-state">
+                                    <span>NO ACTIVITY RECORDED</span>
+                                    <p>New activity will appear here.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-side-column">
+
+                        <div class="panel executive-panel">
+                            <span class="panel-eyebrow">EXECUTIVE STATUS</span>
+                            <h2>Personal records</h2>
+                            <p>Central overview of your personal documentation and ongoing matters.</p>
+
+                            <div class="executive-status-row">
+                                <span>ARCHIVE</span>
+                                <strong>AVAILABLE</strong>
+                            </div>
+
+                            <div class="executive-status-row">
+                                <span>JOURNAL</span>
+                                <strong>AVAILABLE</strong>
+                            </div>
+
+                            <div class="executive-status-row">
+                                <span>PROJECTS</span>
+                                <strong>AVAILABLE</strong>
+                            </div>
+
+                            <div class="executive-status-row">
+                                <span>RECOVERY</span>
+                                <strong>AVAILABLE</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="panel">
+                            <div class="panel-header">
+                                <div>
+                                    <span class="panel-eyebrow">PENDING</span>
+                                    <h2>Unfinished business</h2>
+                                </div>
+                            </div>
+
+                            <div id="dashboard-pending" class="compact-list">
+                                <p class="empty-state-text">No pending matters.</p>
+                            </div>
+
+                            <button class="panel-link" data-page="unfinished">
+                                OPEN REGISTER →
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECORD MODULES -->
+
+            <section id="page-archive" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONAL RECORDS / 01</span>
+                        <h1>Private archive</h1>
+                        <p>Personal documents, confidential files and stored records.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-archive">+ NEW DOCUMENT</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>DOCUMENT REGISTER</span>
+                    <span id="archive-count">0 RECORDS</span>
+                </div>
+                <div id="archive-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-journal" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONAL RECORDS / 02</span>
+                        <h1>Personal journal</h1>
+                        <p>Chronological personal entries, reflections and events.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-journal">+ NEW ENTRY</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>JOURNAL ENTRIES</span>
+                    <span id="journal-count">0 ENTRIES</span>
+                </div>
+                <div id="journal-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-black-files" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONAL RECORDS / 03</span>
+                        <h1>Black files</h1>
+                        <p>Private dossiers and individual documentation.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-black-file">+ NEW DOSSIER</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>DOSSIER REGISTER</span>
+                    <span id="black-files-count">0 DOSSIERS</span>
+                </div>
+                <div id="black-files-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-contacts" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONAL RECORDS / 04</span>
+                        <h1>Private contacts</h1>
+                        <p>Personal contact register and communication records.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-contact">+ NEW CONTACT</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>CONTACT REGISTER</span>
+                    <span id="contacts-count">0 CONTACTS</span>
+                </div>
+                <div id="contacts-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-sealed" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONAL RECORDS / 05</span>
+                        <h1>Sealed records</h1>
+                        <p>Specially designated personal documentation.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-sealed">+ NEW RECORD</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>SEALED REGISTER</span>
+                    <span id="sealed-count">0 RECORDS</span>
+                </div>
+                <div id="sealed-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-history" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">PERSONAL RECORDS / 06</span>
+                        <h1>Historical records</h1>
+                        <p>Archived events and historical documentation.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-history">+ NEW RECORD</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>HISTORICAL REGISTER</span>
+                    <span id="history-count">0 RECORDS</span>
+                </div>
+                <div id="history-list" class="record-grid"></div>
+            </section>
+
+
+            <!-- EXECUTIVE MANAGEMENT -->
+
+            <section id="page-notes" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">EXECUTIVE MANAGEMENT / 01</span>
+                        <h1>Executive notes</h1>
+                        <p>Ideas, reminders and personal executive matters.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-note">+ NEW NOTE</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>NOTES REGISTER</span>
+                    <span id="notes-count">0 NOTES</span>
+                </div>
+                <div id="notes-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-decisions" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">EXECUTIVE MANAGEMENT / 02</span>
+                        <h1>Decision register</h1>
+                        <p>Personal decisions, reasoning and recorded outcomes.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-decision">+ NEW DECISION</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>DECISION REGISTER</span>
+                    <span id="decisions-count">0 DECISIONS</span>
+                </div>
+                <div id="decisions-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-projects" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">EXECUTIVE MANAGEMENT / 03</span>
+                        <h1>Personal projects</h1>
+                        <p>Independent projects, objectives and development records.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-project">+ NEW PROJECT</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>PROJECT REGISTER</span>
+                    <span id="projects-count">0 PROJECTS</span>
+                </div>
+                <div id="projects-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-unfinished" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">EXECUTIVE MANAGEMENT / 04</span>
+                        <h1>Unfinished business</h1>
+                        <p>Pending matters and unresolved personal tasks.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-unfinished">+ NEW MATTER</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>PENDING REGISTER</span>
+                    <span id="unfinished-count">0 MATTERS</span>
+                </div>
+                <div id="unfinished-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="page-correspondence" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">EXECUTIVE MANAGEMENT / 05</span>
+                        <h1>Correspondence</h1>
+                        <p>Personal correspondence and communication history.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-correspondence">+ NEW RECORD</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>CORRESPONDENCE REGISTER</span>
+                    <span id="correspondence-count">0 RECORDS</span>
+                </div>
+                <div id="correspondence-list" class="record-grid"></div>
+            </section>
+
+
+            <!-- OVERVIEW MODULES -->
+
+            <section id="page-timeline" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">OVERVIEW / 01</span>
+                        <h1>Timeline</h1>
+                        <p>Chronological overview of recorded activity.</p>
+                    </div>
+                </div>
+                <div id="timeline-list" class="record-list"></div>
+            </section>
+
+
+            <section id="page-inbox" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">OVERVIEW / 02</span>
+                        <h1>Private inbox</h1>
+                        <p>Personal incoming records and reminders.</p>
+                    </div>
+                    <button class="primary-action" data-action="create-inbox">+ NEW ITEM</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>INBOX REGISTER</span>
+                    <span id="inbox-count">0 ITEMS</span>
+                </div>
+                <div id="inbox-list" class="record-grid"></div>
+            </section>
+
+
+            <!-- TRASH -->
+
+            <section id="page-trash" class="page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">SYSTEM / RECOVERY</span>
+                        <h1>Trash / Recovery</h1>
+                        <p>Deleted records and available recovery operations.</p>
+                    </div>
+                </div>
+                <div class="module-toolbar">
+                    <span>DELETED RECORDS</span>
+                    <span id="trash-count">0 ITEMS</span>
+                </div>
+                <div id="trash-list" class="record-grid"></div>
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- SPECIAL COMMAND ACCESS -->
+
+    <div class="command-dock" id="command-dock">
+        <button id="open-command" type="button" aria-label="Open command interface">
+            <span class="command-dock-indicator"></span>
+            COMMAND INTERFACE
+            <span class="command-dock-shortcut">⌘</span>
+        </button>
+    </div>
+
+    <div id="command-overlay" class="command-overlay hidden">
+        <div class="command-window">
+            <div class="command-window-header">
+                <span>PRIVATE COMMAND INTERFACE</span>
+                <button id="close-command" type="button">ESC</button>
+            </div>
+
+            <div class="command-window-body">
+                <span class="command-prefix">COS@PRIVATE:~$</span>
+                <input id="command-input" type="text" autocomplete="off" placeholder="Enter command...">
+            </div>
+
+            <p id="command-feedback">ENTER A COMMAND TO CONTINUE</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     BLACK CHAMBER AUTHENTICATION
+================================================= -->
+
+<section id="black-chamber-access" class="screen hidden">
+
+    <div class="login-container chamber-access">
+
+        <div class="login-brand">
+            <div class="login-symbol">BC</div>
+            <div>
+                <span class="login-overline">SEPARATE EXECUTIVE ARCHIVE</span>
+                <h1>BLACK CHAMBER</h1>
+                <p>INDEPENDENT ACCESS</p>
+            </div>
+        </div>
+
+        <div class="login-separator"></div>
+
+        <div class="login-heading">
+            <span>SECONDARY AUTHENTICATION</span>
+            <h2>Access verification</h2>
+            <p>Enter the required command and password.</p>
+        </div>
+
+        <form id="chamber-form">
+
+            <label for="chamber-command">ACCESS COMMAND</label>
+            <input id="chamber-command" type="text" placeholder="Command" autocomplete="off" required>
+
+            <label for="chamber-password">SECONDARY PASSWORD</label>
+            <input id="chamber-password" type="password" placeholder="Password" required>
+
+            <button type="submit">VERIFY ACCESS <span>→</span></button>
+
+            <p id="chamber-error" class="error-message"></p>
+
+        </form>
+
+        <button id="return-to-terminal" class="text-button" type="button">
+            RETURN TO PRIVATE TERMINAL
+        </button>
+
+        <div class="login-footer">
+            BLACK CHAMBER // COS
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     BLACK CHAMBER
+================================================= -->
+
+<section id="black-chamber" class="screen hidden">
+
+    <header class="topbar chamber-topbar">
+
+        <div class="topbar-brand">
+            <div class="brand-symbol">BC</div>
+
+            <div class="brand-information">
+                <h2>BLACK CHAMBER</h2>
+                <p>INDEPENDENT PRIVATE ARCHIVE</p>
+            </div>
+        </div>
+
+        <div class="topbar-center">
+            <span class="system-status-dot"></span>
+            <span>SESSION ACTIVE</span>
+        </div>
+
+        <div class="topbar-right">
+            <div class="clock-container">
+                <span class="clock-label">LOCAL TIME</span>
+                <strong id="chamber-clock">00:00:00</strong>
+            </div>
+
+            <button id="exit-chamber" class="logout-button">EXIT CHAMBER</button>
+        </div>
+
+    </header>
+
+
+    <div class="workspace chamber-workspace">
+
+        <aside class="sidebar chamber-sidebar">
+
+            <div class="sidebar-profile">
+                <span class="sidebar-profile-label">SEPARATE ARCHIVE</span>
+                <strong>BLACK CHAMBER</strong>
+                <span class="sidebar-profile-status">COS ACCESS</span>
+            </div>
+
+            <div class="sidebar-group">
+                <span class="sidebar-heading">CHAMBER RECORDS</span>
+
+                <button class="chamber-nav active" data-chamber-page="chamber-dashboard">
+                    <span class="nav-icon">01</span>
+                    <span>Overview</span>
+                </button>
+
+                <button class="chamber-nav" data-chamber-page="private-dossiers">
+                    <span class="nav-icon">02</span>
+                    <span>Private dossiers</span>
+                </button>
+
+                <button class="chamber-nav" data-chamber-page="sealed-documents">
+                    <span class="nav-icon">03</span>
+                    <span>Sealed documents</span>
+                </button>
+
+                <button class="chamber-nav" data-chamber-page="observations">
+                    <span class="nav-icon">04</span>
+                    <span>Personal observations</span>
+                </button>
+
+                <button class="chamber-nav" data-chamber-page="unresolved">
+                    <span class="nav-icon">05</span>
+                    <span>Unresolved</span>
+                </button>
+
+                <button class="chamber-nav" data-chamber-page="final-records">
+                    <span class="nav-icon">06</span>
+                    <span>Final records</span>
+                </button>
+
+                <button class="chamber-nav" data-chamber-page="black-ledger">
+                    <span class="nav-icon">07</span>
+                    <span>Black ledger</span>
+                </button>
+            </div>
+
+            <div class="sidebar-bottom">
+                <span>BLACK CHAMBER</span>
+                <span>EXECUTIVE ARCHIVE</span>
+            </div>
+
+        </aside>
+
+
+        <main class="main-content chamber-content">
+
+            <div class="content-topline">
+                <span class="breadcrumb">BLACK CHAMBER / <span id="chamber-current-section">OVERVIEW</span></span>
+                <span class="classification-label">COS // SEALED</span>
+            </div>
+
+
+            <section id="chamber-dashboard" class="chamber-page active">
+
+                <div class="welcome-header">
+                    <div>
+                        <span class="section-eyebrow">SEPARATE ARCHIVE</span>
+                        <h1>Black Chamber</h1>
+                        <p>Independent personal archive and executive records.</p>
+                    </div>
+
+                    <div class="dashboard-date">
+                        <span>AUTHORITY</span>
+                        <strong>COS</strong>
+                    </div>
+                </div>
+
+                <div class="statistics-grid">
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>01</span>
+                            <span class="stat-category">DOSSIERS</span>
+                        </div>
+                        <strong id="stat-dossiers">00</strong>
+                        <p>Private dossiers</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>02</span>
+                            <span class="stat-category">DOCUMENTS</span>
+                        </div>
+                        <strong id="stat-sealed">00</strong>
+                        <p>Sealed documents</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>03</span>
+                            <span class="stat-category">OBSERVATIONS</span>
+                        </div>
+                        <strong id="stat-observations">00</strong>
+                        <p>Personal observations</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>04</span>
+                            <span class="stat-category">UNRESOLVED</span>
+                        </div>
+                        <strong id="stat-unresolved">00</strong>
+                        <p>Unresolved matters</p>
+                    </article>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <span class="panel-eyebrow">CHAMBER ACTIVITY</span>
+                            <h2>Recent records</h2>
+                        </div>
+                    </div>
+
+                    <div id="chamber-activity" class="activity-list">
+                        <div class="empty-state">
+                            <span>NO RECORDS AVAILABLE</span>
+                            <p>Chamber activity will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section id="private-dossiers" class="chamber-page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">BLACK CHAMBER / 01</span>
+                        <h1>Private dossiers</h1>
+                        <p>Individual dossiers and personal records.</p>
+                    </div>
+                    <button class="primary-action" data-chamber-action="create-dossier">+ NEW DOSSIER</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>DOSSIER REGISTER</span>
+                    <span id="dossiers-count">0 RECORDS</span>
+                </div>
+                <div id="dossiers-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="sealed-documents" class="chamber-page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">BLACK CHAMBER / 02</span>
+                        <h1>Sealed documents</h1>
+                        <p>Individually designated sealed documentation.</p>
+                    </div>
+                    <button class="primary-action" data-chamber-action="create-document">+ NEW DOCUMENT</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>SEALED DOCUMENT REGISTER</span>
+                    <span id="documents-count">0 RECORDS</span>
+                </div>
+                <div id="documents-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="observations" class="chamber-page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">BLACK CHAMBER / 03</span>
+                        <h1>Personal observations</h1>
+                        <p>Private observations and recorded notes.</p>
+                    </div>
+                    <button class="primary-action" data-chamber-action="create-observation">+ NEW OBSERVATION</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>OBSERVATION REGISTER</span>
+                    <span id="observations-count">0 RECORDS</span>
+                </div>
+                <div id="observations-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="unresolved" class="chamber-page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">BLACK CHAMBER / 04</span>
+                        <h1>Unresolved</h1>
+                        <p>Open matters awaiting a final record.</p>
+                    </div>
+                    <button class="primary-action" data-chamber-action="create-unresolved">+ NEW MATTER</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>UNRESOLVED REGISTER</span>
+                    <span id="unresolved-count">0 RECORDS</span>
+                </div>
+                <div id="unresolved-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="final-records" class="chamber-page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">BLACK CHAMBER / 05</span>
+                        <h1>Final records</h1>
+                        <p>Concluded matters and final documentation.</p>
+                    </div>
+                    <button class="primary-action" data-chamber-action="create-final">+ NEW RECORD</button>
+                </div>
+                <div class="module-toolbar">
+                    <span>FINAL RECORD REGISTER</span>
+                    <span id="final-count">0 RECORDS</span>
+                </div>
+                <div id="final-list" class="record-grid"></div>
+            </section>
+
+
+            <section id="black-ledger" class="chamber-page">
+                <div class="page-heading">
+                    <div>
+                        <span class="section-eyebrow">BLACK CHAMBER / 06</span>
+                        <h1>Black ledger</h1>
+                        <p>Chronological chamber activity and record history.</p>
+                    </div>
+                </div>
+                <div id="black-ledger-list" class="record-list"></div>
+            </section>
+
+        </main>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>
