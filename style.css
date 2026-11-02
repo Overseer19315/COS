@@ -1,0 +1,814 @@
+
+/* ==========================================
+   COS // PRIVATE TERMINAL
+   PERSONAL EXECUTIVE SYSTEM
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --background: #0b0c0e;
+    --panel: #111316;
+    --panel-light: #171a1e;
+    --border: #292d32;
+    --text: #e5e5e5;
+    --muted: #858b91;
+    --red: #792b30;
+    --red-light: #a33b42;
+    --green: #748c78;
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-main);
+    min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.screen {
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+#login-screen,
+#black-chamber-access {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background:
+        linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.9)),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(255,255,255,0.018) 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(255,255,255,0.018) 40px
+        ),
+        #0b0c0e;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
+    padding: 45px;
+    background: #111316;
+    border: 1px solid #34383d;
+    border-top: 3px solid var(--red);
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+}
+
+.system-label {
+    font-family: var(--font-mono);
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-container h1 {
+    font-family: var(--font-mono);
+    font-size: 52px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+.login-divider {
+    height: 1px;
+    background: #30343a;
+    margin: 35px 0;
+}
+
+#login-form,
+#chamber-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form label,
+#chamber-form label {
+    color: #9da2a7;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 9px;
+    margin-top: 18px;
+}
+
+#login-form input,
+#chamber-form input {
+    width: 100%;
+    background: #090a0c;
+    color: white;
+    border: 1px solid #34383e;
+    padding: 14px;
+    outline: none;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+#login-form input:focus,
+#chamber-form input:focus {
+    border-color: var(--red-light);
+}
+
+#login-form button,
+#chamber-form button[type="submit"] {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid var(--red);
+    background: var(--red);
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+#login-form button:hover,
+#chamber-form button[type="submit"]:hover {
+    background: var(--red-light);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 35px;
+    font-family: var(--font-mono);
+    color: #646a70;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.error-message {
+    color: #c45b61;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    margin-top: 15px;
+    text-align: center;
+    min-height: 15px;
+}
+
+
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar {
+    height: 75px;
+    background: #101215;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-symbol {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #24282d;
+    border: 1px solid #555b62;
+    color: white;
+    font-family: var(--font-mono);
+    font-size: 19px;
+}
+
+.brand h2 {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.brand p {
+    color: var(--muted);
+    font-size: 9px;
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+#system-clock {
+    color: #b4b8bd;
+    letter-spacing: 1px;
+}
+
+.status-indicator {
+    color: var(--green);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.status-indicator::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.topbar-right button {
+    border: 1px solid #45494e;
+    background: transparent;
+    color: #bfc3c7;
+    padding: 9px 13px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.topbar-right button:hover {
+    border-color: var(--red-light);
+    color: white;
+}
+
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.terminal-layout,
+.chamber-layout {
+    display: flex;
+    min-height: calc(100vh - 75px);
+}
+
+.sidebar {
+    width: 255px;
+    min-width: 255px;
+    background: #101215;
+    border-right: 1px solid var(--border);
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-heading {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: #777e85;
+    letter-spacing: 2px;
+    margin: 23px 10px 12px;
+}
+
+.nav-button,
+.chamber-nav {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 13px;
+    margin-bottom: 3px;
+    background: transparent;
+    color: #a7adb3;
+    border: 1px solid transparent;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    transition: 0.2s;
+}
+
+.nav-button:hover,
+.chamber-nav:hover {
+    background: #1a1d21;
+    color: white;
+}
+
+.nav-button.active {
+    background: #211719;
+    border-left: 3px solid var(--red);
+    color: white;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 18px 10px 5px;
+    border-top: 1px solid var(--border);
+    color: #747b82;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    padding: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+/* ==========================================
+   PAGES
+========================================== */
+
+.page,
+.chamber-page {
+    display: none;
+}
+
+.page.active,
+.chamber-page.active {
+    display: block;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+    color: #969ca2;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.page-header p:not(.eyebrow) {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+.classification {
+    border: 1px solid #694044;
+    color: #c27b80;
+    padding: 9px 13px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.dashboard-card {
+    min-height: 160px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 22px;
+    transition: 0.2s;
+    position: relative;
+}
+
+.dashboard-card:hover {
+    background: #181b1f;
+    border-color: #555b61;
+    transform: translateY(-2px);
+}
+
+.dashboard-card span {
+    font-family: var(--font-mono);
+    color: #8e4248;
+    font-size: 11px;
+}
+
+.dashboard-card h3 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    color: #858b91;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.dashboard-section {
+    margin-top: 40px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 25px;
+}
+
+.dashboard-section h2 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.dashboard-section p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   RECORDS AND ACTIONS
+========================================== */
+
+.action-button {
+    background: #272b30;
+    color: #e5e5e5;
+    border: 1px solid #464c53;
+    padding: 12px 17px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+    transition: 0.2s;
+}
+
+.action-button:hover {
+    background: #373d44;
+    border-color: #777e85;
+}
+
+.record-list {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    min-height: 150px;
+    padding: 25px;
+}
+
+.record-list > p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   BLACK CHAMBER ACCESS
+========================================== */
+
+#black-chamber-access {
+    background:
+        radial-gradient(ellipse at center, #171012 0%, #080809 65%, #050505 100%);
+}
+
+.chamber-access {
+    background: #0c0b0c;
+    border-color: #482327;
+    border-top: 3px solid #751d25;
+}
+
+.chamber-access h1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: #e2d7d7;
+}
+
+.chamber-access .system-label {
+    color: #89575a;
+}
+
+.chamber-access .login-divider {
+    background: #492326;
+}
+
+.text-button {
+    display: block;
+    margin: 20px auto 0;
+    border: none;
+    background: transparent;
+    color: #777;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+.text-button:hover {
+    color: white;
+}
+
+
+/* ==========================================
+   BLACK CHAMBER INTERFACE
+========================================== */
+
+#black-chamber {
+    background: #080708;
+}
+
+.chamber-topbar {
+    background: #0b090a;
+    border-bottom-color: #482327;
+}
+
+.chamber-topbar .brand-symbol {
+    background: #241013;
+    border-color: #672a30;
+    color: #d59a9d;
+}
+
+.chamber-topbar .brand h2 {
+    color: #d8c6c7;
+}
+
+.chamber-topbar .brand p {
+    color: #86565a;
+}
+
+.chamber-sidebar {
+    background: #0b090a;
+    border-right-color: #482327;
+}
+
+.chamber-sidebar .sidebar-heading {
+    color: #875358;
+}
+
+.chamber-nav {
+    color: #a18d8e;
+}
+
+.chamber-nav:hover {
+    background: #1b1113;
+}
+
+.chamber-nav.active {
+    background: #211012;
+    border-left: 3px solid #81242c;
+    color: #f0dddd;
+}
+
+.chamber-content {
+    background:
+        radial-gradient(ellipse at top right, rgba(65,15,20,0.12), transparent 45%),
+        #090809;
+}
+
+.chamber-content .page-header {
+    border-bottom-color: #482327;
+}
+
+.chamber-content .eyebrow {
+    color: #95686b;
+}
+
+.chamber-content .page-header h1 {
+    color: #e0d4d5;
+}
+
+.chamber-content .dashboard-card {
+    background: #100c0d;
+    border-color: #382023;
+}
+
+.chamber-content .dashboard-card:hover {
+    background: #1b1012;
+    border-color: #73353b;
+}
+
+.chamber-content .dashboard-card span {
+    color: #a64a52;
+}
+
+.chamber-content .dashboard-card h3 {
+    color: #e1cccc;
+}
+
+.chamber-content .dashboard-card p {
+    color: #927f81;
+}
+
+.chamber-content .record-list {
+    background: #100c0d;
+    border-color: #382023;
+}
+
+.chamber-content .action-button {
+    background: #281417;
+    border-color: #713239;
+    color: #e2c9cb;
+}
+
+.chamber-content .action-button:hover {
+    background: #3b1a20;
+    border-color: #a14a53;
+}
+
+.chamber-sidebar .sidebar-bottom {
+    border-top-color: #482327;
+    color: #80585b;
+}
+
+
+/* ==========================================
+   SPECIAL ENTRY POINT
+========================================== */
+
+#special-entry {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0.025;
+    z-index: 50;
+    cursor: pointer;
+}
+
+#special-entry:hover {
+    opacity: 0.15;
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1000px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 700px) {
+    .topbar {
+        padding: 12px 15px;
+        height: auto;
+        min-height: 70px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .topbar-right {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .terminal-layout,
+    .chamber-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 12px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        max-height: 270px;
+        overflow-y: auto;
+    }
+
+    .sidebar-heading {
+        margin-top: 12px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .content {
+        padding: 22px 15px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .login-container {
+        padding: 30px 22px;
+    }
+
+    .login-container h1 {
+        font-size: 42px;
+    }
+
+    .classification {
+        align-self: flex-start;
+    }
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090a0c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #34383e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555b62;
+}
+
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection {
+    background: #67272d;
+    color: white;
+}
